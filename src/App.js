@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import TodoList from "./components/TodoList";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+	constructor() {
+		super();
+		this.TodoList = [
+			{ name: "Long", age: 20 },
+			{ name: "Trang", age: 22 },
+		];
+	}
+	render() {
+		return (
+			<div className="TodoList">
+				<table>
+					<tr>
+						<th>Name</th>
+						<th>Age</th>
+					</tr>
+					{this.TodoList.map((obj) => {
+						return (
+							<tr>
+								<td>{obj.name}</td>
+								<td>{obj.age}</td>
+							</tr>
+						);
+					})}
+				</table>
+			</div>
+			// <TodoList
+			// 	key={index}
+			// 	person={{ name: obj.name, age: obj.age }}
+			// />
+		);
+	}
 }
 
 export default App;
